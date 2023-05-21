@@ -1,6 +1,7 @@
 package com.example.yin.config;
 
 import com.example.yin.constant.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Time : 2022/6/5 22:23
  **/
 @Configuration
+@Slf4j
 public class WebPicConfig implements WebMvcConfigurer {
 
     //TODO 这个配置类的目的是什么  就是注册了一个类似于拦截器吧  看到对应的资源 会将其修改成相应的地址
@@ -29,6 +31,7 @@ public class WebPicConfig implements WebMvcConfigurer {
                 .addResourceLocations(Constants.SONGLIST_PIC_PATH);
         registry.addResourceHandler("/img/swiper/**")
                 .addResourceLocations(Constants.BANNER_PIC_PATH);
+        log.info("AVATOR_IMAGES_PATH:{}", Constants.AVATOR_IMAGES_PATH);
     }
 
 }
